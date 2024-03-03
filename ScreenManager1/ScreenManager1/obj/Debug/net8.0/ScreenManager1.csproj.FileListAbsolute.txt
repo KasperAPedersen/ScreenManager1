@@ -1,0 +1,15 @@
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\ScreenManager1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\ScreenManager1.AssemblyInfoInputs.cache
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\ScreenManager1.AssemblyInfo.cs
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\ScreenManager1.csproj.CoreCompileInputs.cache
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\ScreenManager1.sourcelink.json
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\bin\Debug\net8.0\ScreenManager1.exe
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\bin\Debug\net8.0\ScreenManager1.deps.json
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\bin\Debug\net8.0\ScreenManager1.runtimeconfig.json
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\bin\Debug\net8.0\ScreenManager1.dll
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\bin\Debug\net8.0\ScreenManager1.pdb
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\ScreenManager1.dll
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\refint\ScreenManager1.dll
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\ScreenManager1.pdb
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\ScreenManager1.genruntimeconfig.cache
+C:\Users\swooo\Documents\GitHub\ScreenManager1\ScreenManager1\ScreenManager1\obj\Debug\net8.0\ref\ScreenManager1.dll
