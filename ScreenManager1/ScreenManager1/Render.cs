@@ -12,7 +12,6 @@ namespace ScreenManager1
         {
             Console.SetCursorPosition(_x, _y);
         }
-
         internal static void Write(int _x, int _y, string text = "")
         {
             SetPos(_x, _y);

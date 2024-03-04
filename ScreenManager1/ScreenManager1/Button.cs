@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ScreenManager1.Box;
 
 namespace ScreenManager1
 {
-    internal class Box : Object
+    internal class Button : Object
     {
         private int currentHeight = 0;
 
-        public Box(Parent _parent, int _x, int _y, int _width, int _height) : base(_parent, _x, _y, _width, _height)
+        public Button(Parent _parent, int _x, int _y, int _padding, string _text) : base(_parent, _x, _y, _text.Length + (_padding * 2), 3)
         {
             if (this.Width >= this.GetParent.width) this.Width = this.GetParent.width - 4;
             if (this.Height >= this.GetParent.height) this.Height = this.GetParent.height - 2;
+            this.X = _parent.width - _text.Length - (_padding * 2) - 4;
+
+            string text = string.Concat(Enumerable.Repeat(" ", _padding)) + _text + string.Concat(Enumerable.Repeat(" ", _padding));
 
             // Set Top border of box
-            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, string.Concat(Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 2)) + Border(Get.TopRight)));
+            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width)) + Border(Get.TopRight));
 
             // Set Top border of box
-            if (this.Height < 3) this.Height = 3;
-            for (int i = 0; i < this.Height - 2; i++)
-            {
-                Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, string.Concat(Border(Get.Vertical) + string.Concat(Enumerable.Repeat(" ", this.Width - 2)) + string.Concat(Border(Get.Vertical))));
-            }
+            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, string.Concat(Border(Get.Vertical) + text + string.Concat(Border(Get.Vertical))));
 
             // Set Top border of box
-            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, string.Concat(Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 2)) + Border(Get.BottomRight)));
+            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width)) + Border(Get.BottomRight));
         }
 
         internal enum Get
