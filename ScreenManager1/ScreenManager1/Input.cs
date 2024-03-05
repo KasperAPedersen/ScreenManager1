@@ -10,12 +10,6 @@ namespace ScreenManager1
     internal class Input
     {
         private static List<string> content = [];
-
-
-        /*
-         Render.SetPos(_parent.x + _x, _parent.y + (i*3));
-         _ = new Label(_parent, _x + 1, (3*i) + 1, 2, "Blah");
-         */
         internal static void Run(Parent _parent, int _x, int _y)
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -74,15 +68,7 @@ namespace ScreenManager1
             string[] aUserContent = new string[9];
             for (int i = 0; i < content.Count; i++)
             {
-                if (i == 6)
-                {
-                    aUserContent[i] = _gender;
-                }
-                else
-                {
-                    aUserContent[i] = content[i];
-                }
-
+                aUserContent[i] = i == 6 ? _gender : content[i];
             }
             content = [];
             return aUserContent;
