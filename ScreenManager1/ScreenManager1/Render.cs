@@ -12,11 +12,21 @@ namespace ScreenManager1
         {
             Console.SetCursorPosition(_x, _y);
         }
-        internal static void Write(int _x, int _y, string text = "")
+        internal static void Write(int _x, int _y, string text = "", ConsoleColor _color = ConsoleColor.White)
         {
             SetPos(_x, _y);
             char[] tmp = text.ToCharArray();
+            Console.ForegroundColor = _color;
             for (int i = 0; i < tmp.Length; i++) Console.Write(tmp[i]);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        internal static void Remove(int _x, int _y, int _width, int _height)
+        {
+            for(int i = 0; i < _height; i++)
+            {
+                Write(_x, _y + i, string.Concat(Enumerable.Repeat(" ", _width)));
+            }
         }
     }
 }
