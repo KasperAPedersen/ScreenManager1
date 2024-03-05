@@ -47,8 +47,8 @@ while(keepRunning)
 
             _ = new Label(createUserBox.MakeParent, 2, 3 * inputLabels.Length + 1, 2, "Titel");
             ComboBox cb = new ComboBox(createUserBox.MakeParent, createUserBox.MakeParent.width - 25 - table.X, 3 * inputLabels.Length, 25, 3);
-            
-            Input.Run(createUserBox.MakeParent, createUserBox.MakeParent.width - 25 - table.X,3);
+
+            Input.Run(createUserBox.MakeParent, createUserBox.MakeParent.width - 25 - table.X, 3);
             cb.Run();
 
             string[] res = Input.Get(cb.Chosen);

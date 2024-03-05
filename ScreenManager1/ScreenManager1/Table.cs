@@ -93,7 +93,10 @@ namespace ScreenManager1
             if (content != null && content.Count > 0)
             {
                 content.RemoveAt(_active);
-                if ((_active - 1) > 0) active = --_active;
+                if ((_active - 1) > 0)
+                {
+                    active = (active - 1 < 0 || active - 1 > content.Count - 1) ? 0 : --_active;
+                }
                 Update(active);
             }
         }

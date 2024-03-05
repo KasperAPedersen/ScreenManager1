@@ -23,7 +23,7 @@ namespace ScreenManager1
 
             content.Add((Table.UserId + 1).ToString());
 
-            for(int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 Console.SetCursorPosition(_parent.x + _x + 2, _parent.y + _y + (i * 3) + 1);
                 string tmp = "";
@@ -60,7 +60,6 @@ namespace ScreenManager1
                         keepRunning = false;
                     }
                 }
-                //_ = new Label(_parent.x + _x, _parent.y + (i * 3), tmp);
                 Render.Write(_parent.x + _x + 2, _parent.y + _y + (i*3) + 1, tmp);
                 content.Add(tmp);
             }
