@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\zbc23kaped\\source\\repos\\ScreenManager1\\ScreenManager1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1E020249-7FBC-450F-AA74-2A96E6B7BA16}|ScreenManager1\\ScreenManager1.csproj|c:\\users\\zbc23kaped\\source\\repos\\screenmanager1\\screenmanager1\\screenmanager1\\render.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E020249-7FBC-450F-AA74-2A96E6B7BA16}|ScreenManager1\\ScreenManager1.csproj|solutionrelative:screenmanager1\\render.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1E020249-7FBC-450F-AA74-2A96E6B7BA16}|ScreenManager1\\ScreenManager1.csproj|c:\\users\\zbc23kaped\\source\\repos\\screenmanager1\\screenmanager1\\screenmanager1\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E020249-7FBC-450F-AA74-2A96E6B7BA16}|ScreenManager1\\ScreenManager1.csproj|solutionrelative:screenmanager1\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E020249-7FBC-450F-AA74-2A96E6B7BA16}|ScreenManager1\\ScreenManager1.csproj|c:\\users\\zbc23kaped\\source\\repos\\screenmanager1\\screenmanager1\\screenmanager1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E020249-7FBC-450F-AA74-2A96E6B7BA16}|ScreenManager1\\ScreenManager1.csproj|solutionrelative:screenmanager1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E020249-7FBC-450F-AA74-2A96E6B7BA16}|ScreenManager1\\ScreenManager1.csproj|c:\\users\\zbc23kaped\\source\\repos\\screenmanager1\\screenmanager1\\screenmanager1\\render.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E020249-7FBC-450F-AA74-2A96E6B7BA16}|ScreenManager1\\ScreenManager1.csproj|solutionrelative:screenmanager1\\render.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,24 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Render.cs",
               "DocumentMoniker": "C:\\Users\\zbc23kaped\\source\\repos\\ScreenManager1\\ScreenManager1\\ScreenManager1\\Render.cs",
               "RelativeDocumentMoniker": "ScreenManager1\\Render.cs",
               "ToolTip": "C:\\Users\\zbc23kaped\\source\\repos\\ScreenManager1\\ScreenManager1\\ScreenManager1\\Render.cs",
               "RelativeToolTip": "ScreenManager1\\Render.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAswCQAAAAqAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAkwBoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-05T10:40:07.651Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Table.cs",
               "DocumentMoniker": "C:\\Users\\zbc23kaped\\source\\repos\\ScreenManager1\\ScreenManager1\\ScreenManager1\\Table.cs",
               "RelativeDocumentMoniker": "ScreenManager1\\Table.cs",
@@ -52,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\zbc23kaped\\source\\repos\\ScreenManager1\\ScreenManager1\\ScreenManager1\\Program.cs",
               "RelativeDocumentMoniker": "ScreenManager1\\Program.cs",
@@ -60,8 +60,7 @@
               "RelativeToolTip": "ScreenManager1\\Program.cs",
               "ViewState": "AQIAACQAAAAAAAAAAAAAACkAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-03T16:57:53.958Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-03T16:57:53.958Z"
             }
           ]
         }
