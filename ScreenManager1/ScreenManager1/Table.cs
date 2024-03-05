@@ -15,9 +15,10 @@ namespace ScreenManager1
         private int currentHeight = 0;
         private int active = 0;
         private int maxHeight = 28;
-        private int userID = 0;
+        private static int userID = 0;
 
         public int Active { get { return active; } }
+        public static int UserId {  get { return userID; } }
 
         public Table (Parent _parent, int _x, int _y, int _width, int _height) : base(_parent, _x, _y, _width, _height)
         {
@@ -71,11 +72,11 @@ namespace ScreenManager1
 
         internal void Update(int _active, string[]? _content = null)
         {
-            Render.Remove(this.GetParent.x + this.X, this.GetParent.y + this.Y, this.fullWidth, this.Height);
+            Render.Remove(this.GetParent.x + this.X, this.GetParent.y + this.Y, this.fullWidth, this.Height + this.currentHeight);
 
             if(_content != null && (content.Count - 1) < maxHeight)
             {
-                this.userID++;
+                Table.userID++;
                 content.Add(_content);
             }
 
@@ -85,6 +86,16 @@ namespace ScreenManager1
             BuildHeader();
             BuildContent();
             BuildFooter();
+        }
+
+        internal void Remove(int _active)
+        {
+            if (content != null && content.Count > 0)
+            {
+                content.RemoveAt(_active);
+                if ((_active - 1) > 0) active = --_active;
+                Update(active);
+            }
         }
 
         internal enum Get
