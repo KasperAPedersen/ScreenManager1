@@ -17,7 +17,27 @@ namespace ScreenManager1
             SetPos(_x, _y);
             char[] tmp = text.ToCharArray();
             Console.ForegroundColor = _color;
-            for (int i = 0; i < tmp.Length; i++) Console.Write(tmp[i]);
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                if (tmp[i].ToString() == "[")
+                {
+                    switch(tmp[i+1].ToString())
+                    {
+                        case "r":
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write(tmp[i]);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            break;
+                        default:
+                            break;
+                    }
+                    i += 2;
+                } else
+                {
+                    Console.Write(tmp[i]);
+                }
+                
+            }
             Console.ForegroundColor = ConsoleColor.White;
         }
 
