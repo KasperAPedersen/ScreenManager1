@@ -22,7 +22,7 @@ namespace ScreenManager1
         public int ActiveSelector { get { return activeSelector; } set { activeSelector = value; } }
         public static int UserId {  get { return userID; } }
 
-        public Table (Parent _parent, int _x, int _y, int _width, int _height) : base(_parent, _x, _y, _width, _height)
+        public Table (Parent _parent, Pos _pos, int _width, int _height) : base(_parent, _pos, _width, _height)
         {
             this.fullWidth = this.GetParent.width - this.GetParent.x;
             this.paddingWidth = this.fullWidth / this.titles.Length - 1;
@@ -35,7 +35,7 @@ namespace ScreenManager1
         internal void BuildHeader()
         {
             string text = Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.fullWidth - 2)) + Border(Get.TopRight);
-            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, text);
+            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
 
             text = Border(Get.Vertical);
             foreach(string s in titles)
@@ -43,16 +43,16 @@ namespace ScreenManager1
                 text += Aligner.Align(s, Alignment.Center, this.paddingWidth, " ");
                 text += titles.Last() == s ? $" {Border(Get.Vertical)}" : Border(Get.Vertical);
             }
-            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, text);
+            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
 
             text = Border(Get.VerticalLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.fullWidth - 2)) + Border(Get.VerticalRight);
-            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, text);
+            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
         }
 
         internal void BuildFooter()
         {
             string text = Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.fullWidth - 2)) + Border(Get.BottomRight);
-            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, text);
+            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
         }
 
         internal void BuildContent()
@@ -67,7 +67,7 @@ namespace ScreenManager1
                         
                         if(active == i && this.activeSelector == o)
                         {
-                            string tmp = Colors.Set("> " + content[i][o], this.activeSelector == 7 ? Colors.Color(Colors.Get.Red) : Colors.Color(Colors.Get.Green));
+                            string tmp = Global.Style("> " + content[i][o], this.activeSelector == 7 ? Global.Color(Global.Get.Red) : Global.Color(Global.Get.Green));
                             text += $"{Aligner.Align(tmp, Alignment.Center, this.paddingWidth + 6, " ")} ";
                         } else
                         {
@@ -75,14 +75,14 @@ namespace ScreenManager1
                         }
                         text += o == 8 ? $" {Border(Get.Vertical)}" : Border(Get.Vertical);
                     }
-                    Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, text);
+                    Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
                 }
             }
         }
 
         internal void Update(int _active, string[]? _content = null, bool edit = false)
         {
-            Render.Remove(this.GetParent.x + this.X, this.GetParent.y + this.Y, this.fullWidth, this.Height + this.currentHeight);
+            Render.Remove(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y), this.fullWidth, this.Height + this.currentHeight);
 
             if(_content != null && (content.Count - 1) < maxHeight)
             {

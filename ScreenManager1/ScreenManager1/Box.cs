@@ -10,25 +10,24 @@ namespace ScreenManager1
     {
         private int currentHeight = 0;
 
-        public Box(Parent _parent, int _x, int _y, int _width, int _height) : base(_parent, _x, _y, _width, _height)
+        public Box(Parent _parent, Pos _pos, int _width, int _height) : base(_parent, _pos, _width, _height)
         {
             if (this.Width >= this.GetParent.width) this.Width = this.GetParent.width - 4;
             if (this.Height >= this.GetParent.height) this.Height = this.GetParent.height - 2;
 
             // Set Top border of box
-            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, string.Concat(Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 2)) + Border(Get.TopRight)));
+            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), string.Concat(Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 2)) + Border(Get.TopRight)));
 
             // Set Top border of box
             if (this.Height < 3) this.Height = 3;
             for (int i = 0; i < this.Height - 2; i++)
             {
-                Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, string.Concat(Border(Get.Vertical) + string.Concat(Enumerable.Repeat(" ", this.Width - 2)) + string.Concat(Border(Get.Vertical))));
+                Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), string.Concat(Border(Get.Vertical) + string.Concat(Enumerable.Repeat(" ", this.Width - 2)) + string.Concat(Border(Get.Vertical))));
             }
 
             // Set Top border of box
-            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, string.Concat(Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 2)) + Border(Get.BottomRight)));
+            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), string.Concat(Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 2)) + Border(Get.BottomRight)));
         }
-
         internal enum Get
         {
             TopLeft,

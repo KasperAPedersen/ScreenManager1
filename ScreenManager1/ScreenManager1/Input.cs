@@ -10,7 +10,7 @@ namespace ScreenManager1
     internal class Input
     {
         private static List<string> content = [];
-        internal static void Run(Parent _parent, int _x, int _y, bool edit = false, int currentActive = 0)
+        internal static void Run(Parent _parent, Pos _pos, bool edit = false, int currentActive = 0)
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = true;
@@ -19,7 +19,7 @@ namespace ScreenManager1
 
             for (int i = 0; i < 6; i++)
             {
-                Console.SetCursorPosition(_parent.x + _x + 2, _parent.y + _y + (i * 3) + 1);
+                Console.SetCursorPosition(_parent.x + _pos.x + 2, _parent.y + _pos.y + (i * 3) + 1);
                 string tmp = "";
                 bool keepRunning = true;
                 while (keepRunning && i != 6 - 1)
@@ -36,12 +36,12 @@ namespace ScreenManager1
                                 if (tmp.Length > 0)
                                 {
                                     tmp = tmp.Remove(tmp.Length - 1, 1);
-                                    Render.Remove(Console.CursorLeft, Console.CursorTop, 1, 1);
+                                    Render.Remove(new Pos(Console.CursorLeft, Console.CursorTop), 1, 1);
                                     Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
                                 }
                                 else
                                 {
-                                    Console.SetCursorPosition(_parent.x + _x, _parent.y + (i * 3));
+                                    Console.SetCursorPosition(_parent.x + _pos.x, _parent.y + (i * 3));
                                 }
                                 break;
                             default:
@@ -54,7 +54,7 @@ namespace ScreenManager1
                         keepRunning = false;
                     }
                 }
-                Render.Write(_parent.x + _x + 2, _parent.y + _y + (i*3) + 1, tmp);
+                Render.Write(new Pos(_parent.x + _pos.x + 2, _parent.y + _pos.y + (i*3) + 1), tmp);
                 content.Add(tmp);
             }
 
