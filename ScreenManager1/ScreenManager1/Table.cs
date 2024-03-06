@@ -9,13 +9,13 @@ namespace ScreenManager1
 {
     internal class Table : Object
     {
-        private string[] titles = ["ID", "Fornavn", "Efternavn", "EmailAdr", "Mobil", "Addresse", "Titel", "Slet", "Edit"];
-        private List<string[]> content = [];
-        private int fullWidth, paddingWidth;
+        private readonly string[] titles = ["ID", "Fornavn", "Efternavn", "EmailAdr", "Mobil", "Addresse", "Titel", "Slet", "Edit"];
+        private readonly List<string[]> content = [];
+        private readonly int fullWidth, paddingWidth;
         private int currentHeight = 0;
         private int activeSelector = 8;
         private int active = 0;
-        private int maxHeight = 28;
+        private readonly int maxHeight = 28;
         private static int userID = 0;
 
         public int Active { get { return active; } }
@@ -34,24 +34,24 @@ namespace ScreenManager1
 
         internal void BuildHeader()
         {
-            string text = Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.fullWidth - 2)) + Border(Get.TopRight);
+            string text = Global.Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), this.fullWidth - 2)) + Global.Border(Get.TopRight);
             Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
 
-            text = Border(Get.Vertical);
+            text = Global.Border(Get.Vertical);
             foreach(string s in titles)
             {
                 text += Aligner.Align(s, Alignment.Center, this.paddingWidth, " ");
-                text += titles.Last() == s ? $" {Border(Get.Vertical)}" : Border(Get.Vertical);
+                text += titles.Last() == s ? $" {Global.Border(Get.Vertical)}" : Global.Border(Get.Vertical);
             }
             Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
 
-            text = Border(Get.VerticalLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.fullWidth - 2)) + Border(Get.VerticalRight);
+            text = Global.Border(Get.VerticalLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), this.fullWidth - 2)) + Global.Border(Get.VerticalRight);
             Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
         }
 
         internal void BuildFooter()
         {
-            string text = Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.fullWidth - 2)) + Border(Get.BottomRight);
+            string text = Global.Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), this.fullWidth - 2)) + Global.Border(Get.BottomRight);
             Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
         }
 
@@ -61,19 +61,17 @@ namespace ScreenManager1
             {
                 for(int i = 0; i < content.Count; i++)
                 {
-                    string text = Border(Get.Vertical);
+                    string text = Global.Border(Get.Vertical);
                     for(int o = 0; o < 9; o++)
                     {
-                        
                         if(active == i && this.activeSelector == o)
                         {
-                            string tmp = Global.Style("> " + content[i][o], this.activeSelector == 7 ? Global.Color(Global.Get.Red) : Global.Color(Global.Get.Green));
-                            text += $"{Aligner.Align(tmp, Alignment.Center, this.paddingWidth + 6, " ")} ";
+                            text += Global.Style($"{Aligner.Align("> " + content[i][o], Alignment.Center, this.paddingWidth, " ")}", Color.Red);
                         } else
                         {
-                            text += Aligner.Align(content[i][o], Alignment.Center, this.paddingWidth, " ");
+                            text += Global.Style($"{Aligner.Align(content[i][o], Alignment.Center, this.paddingWidth, " ")}", Color.White);
                         }
-                        text += o == 8 ? $" {Border(Get.Vertical)}" : Border(Get.Vertical);
+                        text += o == 8 ? $" {Global.Border(Get.Vertical)}" : Global.Border(Get.Vertical);
                     }
                     Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
                 }
@@ -115,40 +113,6 @@ namespace ScreenManager1
                 }
                 Update(active);
             }
-        }
-
-        internal enum Get
-        {
-            TopLeft,
-            TopRight,
-            BottomLeft,
-            BottomRight,
-            Horizontal,
-            HorizontalDown,
-            HorizontalUp,
-            Vertical,
-            VerticalLeft,
-            VerticalRight,
-            Cross
-        }
-
-        internal string Border(Get _part)
-        {
-            return _part switch
-            {
-                Get.TopLeft => "┌",
-                Get.TopRight => "┐",
-                Get.BottomLeft => "└",
-                Get.BottomRight => "┘",
-                Get.Horizontal => "─",
-                Get.HorizontalDown => "┬",
-                Get.HorizontalUp => "┴",
-                Get.Vertical => "│",
-                Get.VerticalLeft => "├",
-                Get.VerticalRight => "┤",
-                Get.Cross => "┼",
-                _ => throw new InvalidOperationException("Unknown border part."),
-            };
         }
     }
 }

@@ -13,28 +13,27 @@ namespace ScreenManager1
         internal static int consoleWidth = Console.WindowWidth - 4;
         internal static int consoleHeight = Console.WindowHeight - 2;
 
-        internal static string Style(string _text, char _char)
+        internal static string Style(string _text, Color _color)
         {
-            return $"[{_char}]{_text}[/{_char}]";
+            return $"\u001b[{(int)_color}m{_text}\u001b[0m";
         }
 
-        internal enum Get
+        internal static string Border(Get _part)
         {
-            Red,
-            Blue,
-            Green,
-            White
-        }
-
-        internal static char Color(Get _color)
-        {
-            return _color switch
+            return _part switch
             {
-                Get.Red => 'r',
-                Get.Blue => 'b',
-                Get.Green => 'g',
-                Get.White => 'w',
-                _ => throw new InvalidOperationException("Unknown Color."),
+                Get.TopLeft => "┌",
+                Get.TopRight => "┐",
+                Get.BottomLeft => "└",
+                Get.BottomRight => "┘",
+                Get.Horizontal => "─",
+                Get.HorizontalDown => "┬",
+                Get.HorizontalUp => "┴",
+                Get.Vertical => "│",
+                Get.VerticalLeft => "├",
+                Get.VerticalRight => "┤",
+                Get.Cross => "┼",
+                _ => throw new InvalidOperationException("Unknown Global.Border part."),
             };
         }
     }
@@ -59,6 +58,18 @@ namespace ScreenManager1
         BgWhite = 47
     }
 
+    public enum Color
+    {
+        Black = 30,
+        Red = 31,
+        Green = 32,
+        Yellow = 33,
+        Blue = 34,
+        Magenta = 35,
+        Cyan = 36,
+        White = 37
+    }
+
     public enum Padding {
         None = 0,
         Small = 2,
@@ -66,16 +77,10 @@ namespace ScreenManager1
         Large = 8
     }
 
-    public struct Pos
+    public struct Pos(int x, int y)
     {
-        public int x;
-        public int y;
-
-        public Pos(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
+        public int x = x;
+        public int y = y;
     }
 
     internal enum Get

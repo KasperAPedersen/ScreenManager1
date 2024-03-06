@@ -6,7 +6,7 @@ string[] inputLabels = ["Fornavn", "Efternavn", "EmailAdr", "Mobil", "Adresse", 
 
 Parent cParent = new(new Pos(0, 0), Global.consoleWidth, Global.consoleHeight);
 
-// Program borders
+// Program Global.Borders
 Box outerMargin = new(cParent, new Pos(2, 1), Global.consoleWidth, Global.consoleHeight);
 Box InnerMargin = new(outerMargin.MakeParent, new Pos(2, 1), outerMargin.GetParent.width, outerMargin.GetParent.height);
 

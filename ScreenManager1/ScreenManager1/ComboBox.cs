@@ -18,22 +18,22 @@ namespace ScreenManager1
 
         public ComboBox(Parent _parent, Pos _pos, int _width, int _height) : base(_parent, _pos, _width, _height)
         {
-            string text = Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 7)) + Border(Get.TopRight);
-            text += Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), 3)) + Border(Get.TopRight);
+            string text = Global.Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), this.Width - 7)) + Global.Border(Get.TopRight);
+            text += Global.Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), 3)) + Global.Border(Get.TopRight);
             Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
 
-            // Set Top border of box
+            // Set Top Global.Border of box
             if (this.Height < 3) this.Height = 3;
             for (int i = 0; i < this.Height - 2; i++)
             {
-                text = string.Concat(Border(Get.Vertical) + string.Concat(Enumerable.Repeat(" ", this.Width - 7)) + string.Concat(Border(Get.Vertical)));
-                text += Border(Get.Vertical) + Aligner.Align(Border(Get.Cross), Alignment.Center, 3, " ") + Border(Get.Vertical);
+                text = string.Concat(Global.Border(Get.Vertical) + string.Concat(Enumerable.Repeat(" ", this.Width - 7)) + string.Concat(Global.Border(Get.Vertical)));
+                text += Global.Border(Get.Vertical) + Aligner.Align(Global.Border(Get.Cross), Alignment.Center, 3, " ") + Global.Border(Get.Vertical);
                 Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
             }
 
-            // Set Top border of box
-            text = string.Concat(Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 7)) + Border(Get.BottomRight));
-            text += Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), 3)) + Border(Get.BottomRight);
+            // Set Top Global.Border of box
+            text = string.Concat(Global.Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), this.Width - 7)) + Global.Border(Get.BottomRight));
+            text += Global.Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), 3)) + Global.Border(Get.BottomRight);
             Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
         }
 
@@ -76,56 +76,22 @@ namespace ScreenManager1
 
         internal void BuildComboBox()
         {
-            string text = Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 2)) + Border(Get.TopRight);
-            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
+            string text = Global.Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), this.Width - 2)) + Global.Border(Get.TopRight);
+            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), Global.Style(text, Color.White));
 
             for(int i = 0; i < this.options.Length; i++)
             {
-                text = Border(Get.Vertical) + Aligner.Align(this.options[i], Alignment.Center, this.Width - 2, " ") + Border(Get.Vertical);
-                Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text, active == i ? ConsoleColor.Red : ConsoleColor.White);
+                text = Global.Style(Global.Border(Get.Vertical), Color.White) + Aligner.Align(active == i ? $"> {this.options[i]}" : this.options[i], Alignment.Center, this.Width - 2, " ") + Global.Style(Global.Border(Get.Vertical), Color.White);
+                Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
             }
 
-            text = Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Border(Get.Horizontal), this.Width - 2)) + Border(Get.BottomRight);
-            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
+            text = Global.Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), this.Width - 2)) + Global.Border(Get.BottomRight);
+            Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), Global.Style(text, Color.White));
         }
 
         internal void RemoveComboBox()
         {
             Render.Remove(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + 3), this.Width, this.Height + options.Length);
-        }
-
-        internal enum Get
-        {
-            TopLeft,
-            TopRight,
-            BottomLeft,
-            BottomRight,
-            Horizontal,
-            HorizontalDown,
-            HorizontalUp,
-            Vertical,
-            VerticalLeft,
-            VerticalRight,
-            Cross
-        }
-
-        internal string Border(Get _part)
-        {
-            return _part switch
-            {
-                Get.TopLeft => "┌",
-                Get.TopRight => "┐",
-                Get.BottomLeft => "└",
-                Get.BottomRight => "┘",
-                Get.Horizontal => "─",
-                Get.HorizontalDown => "┬",
-                Get.HorizontalUp => "┴",
-                Get.Vertical => "│",
-                Get.VerticalLeft => "├",
-                Get.VerticalRight => "┤",
-                Get.Cross => "┼",
-                _ => throw new InvalidOperationException("Unknown border part."),
-            };
         }
     }
 }

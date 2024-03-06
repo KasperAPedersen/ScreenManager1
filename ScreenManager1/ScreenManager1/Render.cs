@@ -29,33 +29,6 @@ namespace ScreenManager1
                     }
                     Console.ForegroundColor = _color;
                     Console.Write($"{styling}{tmp[i]}\u001b[0m");
-                }
-                else if (tmp[i].ToString() == "[")
-                {
-                    if (tmp[i+1].ToString() == "/")
-                    {
-                        i += 3;
-                        Console.ForegroundColor = _color;
-                    }
-                    else
-                    {
-                        switch (tmp[i + 1].ToString())
-                        {
-                            case "r":
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                break;
-                            case "g":
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                break;
-                            case "b":
-                                Console.ForegroundColor = ConsoleColor.Blue;
-                                break;
-                            default:
-                                Console.ForegroundColor = ConsoleColor.White;
-                                break;
-                        }
-                        Console.Write(tmp[i += 3]);
-                    }
                 } 
                 else
                 {
