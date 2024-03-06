@@ -14,32 +14,21 @@ namespace ScreenManager1
         }
         
 
-        internal static void Write(Pos _pos, string text = "", ConsoleColor _color = ConsoleColor.White, Style _style = Style.None)
+        internal static void Write(Pos _pos, string text = "", ConsoleColor _color = ConsoleColor.White, List<Style>? _styles = null)
         {
             SetPos(_pos);
             char[] tmp = text.ToCharArray();
             for (int i = 0; i < tmp.Length; i++)
             {
-                if(_style != Style.None)
+                if(_styles != null)
                 {
-                    Console.ForegroundColor = _color;
                     string styling = "";
-                    switch (_style)
+                    foreach(Style s in _styles)
                     {
-                        case Style.Bold:
-                            styling = "\u001b[1m";
-                            break;
-                        case Style.Italic:
-                            styling = "\u001b[3m";
-                            break;
-                        case Style.Underline:
-                            styling = "\u001b[4m";
-                            break;
-                        default:
-                            break;
+                        styling += $"\u001b[{(int)s}m";
                     }
+                    Console.ForegroundColor = _color;
                     Console.Write($"{styling}{tmp[i]}\u001b[0m");
-                    
                 }
                 else if (tmp[i].ToString() == "[")
                 {
@@ -65,7 +54,6 @@ namespace ScreenManager1
                                 Console.ForegroundColor = ConsoleColor.White;
                                 break;
                         }
-
                         Console.Write(tmp[i += 3]);
                     }
                 } 

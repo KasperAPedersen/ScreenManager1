@@ -1,6 +1,6 @@
 ﻿using ScreenManager1;
 
-// Vars
+// Vars https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
 bool keepRunning = true;
 string[] inputLabels = ["Fornavn", "Efternavn", "EmailAdr", "Mobil", "Adresse", "Titel"];
 
@@ -11,7 +11,7 @@ Box outerMargin = new(cParent, new Pos(2, 1), Global.consoleWidth, Global.consol
 Box InnerMargin = new(outerMargin.MakeParent, new Pos(2, 1), outerMargin.GetParent.width, outerMargin.GetParent.height);
 
 // Label
-_ = new Label(InnerMargin.MakeParent, new Pos(2, 1), (int)Padding.None, "CRUDapp", ConsoleColor.Red, Style.Bold);
+_ = new Label(InnerMargin.MakeParent, new Pos(2, 1), (int)Padding.None, "CRUDapp", ConsoleColor.Red, [Style.Italic, Style.Blink]);
 
 // Button
 _ = new Button(InnerMargin.MakeParent, new Pos(0, 1), (int)Padding.Small, "Create User");

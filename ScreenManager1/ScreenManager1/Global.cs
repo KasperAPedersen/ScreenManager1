@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ScreenManager1
 {
@@ -41,8 +43,20 @@ namespace ScreenManager1
     {
         None = 0,
         Bold = 1,
-        Italic = 2,
-        Underline = 3
+        Italic = 3,
+        Underline = 4,
+        Reversed = 7,
+        Blink = 5,
+        DoubleUnderline = 21,
+
+        BgBlack = 40,
+        BgRed = 41,
+        BgGreen = 42,
+        BgYellow = 43,
+        BgBlue = 44,
+        BgMagenta = 45,
+        BgCyan = 46,
+        BgWhite = 47
     }
 
     public enum Padding {
