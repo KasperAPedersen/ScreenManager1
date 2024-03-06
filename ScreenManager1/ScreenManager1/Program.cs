@@ -71,14 +71,15 @@ void CreateUser(bool edit = false)
     _ = new Button(InnerMargin.MakeParent, 0, 1, 2, "Create User", ConsoleColor.Red);
     Render.Remove(table.X + table.Width / 2 - 20, table.Y + table.Height / 2, 40, 25);
     Box createUserBox = new(new Parent(table.X + table.Width / 2 - 20, table.Y + table.Height / 2, 50, 25), 0, 0, 40, 25);
+    _ = new Label(createUserBox.MakeParent, 1, 1, 1, edit ? "Edit" : "Create");
 
     for (int i = 1; i <= inputLabels.Length - 1; i++)
     {
-        _ = new Label(createUserBox.MakeParent, 2, 3 * i + 1, 2, inputLabels[i - 1]);
+        _ = new Label(createUserBox.MakeParent, 2, 3 * i + 1, 0, inputLabels[i - 1]);
         _ = new Box(createUserBox.MakeParent, createUserBox.MakeParent.width - 25 - table.X, i * 3, 25, 3);
     }
 
-    _ = new Label(createUserBox.MakeParent, 2, 3 * inputLabels.Length + 1, 2, "Titel");
+    _ = new Label(createUserBox.MakeParent, 2, 3 * inputLabels.Length + 1, 0, "Titel");
     ComboBox cb = new(createUserBox.MakeParent, createUserBox.MakeParent.width - 25 - table.X, 3 * inputLabels.Length, 25, 3);
 
     Input.Run(createUserBox.MakeParent, createUserBox.MakeParent.width - 25 - table.X, 3, edit, edit ? table.Active + 1 : 0);

@@ -11,7 +11,8 @@ namespace ScreenManager1
         public Label(Parent _parent, int _x, int _y, int _padding, string _text, ConsoleColor _color = ConsoleColor.White) : base(_parent, _x, _y, _text.Length + _padding, 1)
         {
             // make padding
-            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y, _text, _color);
+            string text = string.Concat(Enumerable.Repeat(" ", _padding)) + _text + string.Concat(Enumerable.Repeat(" ", _padding));
+            Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y, text, _color);
         }
     }
 }
