@@ -10,12 +10,12 @@ namespace ScreenManager1
     internal class Input
     {
         private static List<string> content = [];
-        internal static void Run(Parent _parent, int _x, int _y)
+        internal static void Run(Parent _parent, int _x, int _y, bool edit = false, int currentActive = 0)
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = true;
 
-            content.Add((Table.UserId + 1).ToString());
+            content.Add(edit ? currentActive.ToString() : (Table.UserId + 1).ToString());
 
             for (int i = 0; i < 6; i++)
             {

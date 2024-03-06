@@ -67,7 +67,7 @@ namespace ScreenManager1
                         
                         if(active == i && this.activeSelector == o)
                         {
-                            string tmp = Colors.Set(content[i][o], Colors.Color(Colors.Get.Green));
+                            string tmp = Colors.Set("> " + content[i][o], this.activeSelector == 7 ? Colors.Color(Colors.Get.Red) : Colors.Color(Colors.Get.Green));
                             text += $"{Aligner.Align(tmp, Alignment.Center, this.paddingWidth + 6, " ")} ";
                         } else
                         {
@@ -80,14 +80,20 @@ namespace ScreenManager1
             }
         }
 
-        internal void Update(int _active, string[]? _content = null)
+        internal void Update(int _active, string[]? _content = null, bool edit = false)
         {
             Render.Remove(this.GetParent.x + this.X, this.GetParent.y + this.Y, this.fullWidth, this.Height + this.currentHeight);
 
             if(_content != null && (content.Count - 1) < maxHeight)
             {
-                Table.userID++;
-                content.Add(_content);
+                if (edit)
+                {
+                    content[_active] = _content;
+                } else
+                {
+                    Table.userID++;
+                    content.Add(_content);
+                }
             }
 
             if (_active != this.active) this.active = _active > content.Count - 1 ? 0 : (_active < 0 ? content.Count - 1 : _active);
