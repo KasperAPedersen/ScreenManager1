@@ -27,7 +27,7 @@ namespace ScreenManager1
             for (int i = 0; i < this.Height - 2; i++)
             {
                 text = string.Concat(Global.Border(Get.Vertical) + string.Concat(Enumerable.Repeat(" ", this.Width - 7)) + string.Concat(Global.Border(Get.Vertical)));
-                text += Global.Border(Get.Vertical) + Aligner.Align(Global.Border(Get.Cross), Alignment.Center, 3, " ") + Global.Border(Get.Vertical);
+                text += Global.Border(Get.Vertical) + Aligner.Align(Global.Border(Get.ArrowDown), Alignment.Center, 3, " ") + Global.Border(Get.Vertical);
                 Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), text);
             }
 

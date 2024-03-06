@@ -33,6 +33,7 @@ namespace ScreenManager1
                 Get.VerticalLeft => "├",
                 Get.VerticalRight => "┤",
                 Get.Cross => "┼",
+                Get.ArrowDown => "↓",
                 _ => throw new InvalidOperationException("Unknown Global.Border part."),
             };
         }
@@ -95,6 +96,7 @@ namespace ScreenManager1
         Vertical,
         VerticalLeft,
         VerticalRight,
-        Cross
+        Cross,
+        ArrowDown
     }
 }

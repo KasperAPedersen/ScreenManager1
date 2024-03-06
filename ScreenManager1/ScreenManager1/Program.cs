@@ -1,5 +1,7 @@
 ﻿using ScreenManager1;
 
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+
 // Vars https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
 bool keepRunning = true;
 string[] inputLabels = ["Fornavn", "Efternavn", "EmailAdr", "Mobil", "Adresse", "Titel"];
