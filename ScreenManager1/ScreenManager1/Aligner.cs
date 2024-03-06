@@ -11,7 +11,7 @@ namespace ScreenManager1
         public static string Align(string text, Alignment? alignment, int maxWidth, string pattern)
         {
             if (text == null) return "";
-            if (text.Length > maxWidth) return text;
+            //if (text.Length > maxWidth) return text;
 
             int diff = maxWidth - text.Length, remainder = (maxWidth - text.Length) % 2;
             string right, left;

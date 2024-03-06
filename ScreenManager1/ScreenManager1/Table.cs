@@ -13,11 +13,13 @@ namespace ScreenManager1
         private List<string[]> content = [];
         private int fullWidth, paddingWidth;
         private int currentHeight = 0;
+        private int activeSelector = 8;
         private int active = 0;
         private int maxHeight = 28;
         private static int userID = 0;
 
         public int Active { get { return active; } }
+        public int ActiveSelector { get { return activeSelector; } set { activeSelector = value; } }
         public static int UserId {  get { return userID; } }
 
         public Table (Parent _parent, int _x, int _y, int _width, int _height) : base(_parent, _x, _y, _width, _height)
@@ -62,10 +64,18 @@ namespace ScreenManager1
                     string text = Border(Get.Vertical);
                     for(int o = 0; o < 9; o++)
                     {
-                        text += Aligner.Align(content[i][o], Alignment.Center, this.paddingWidth, " ");
+                        
+                        if(active == i && this.activeSelector == o)
+                        {
+                            string tmp = Colors.Set(content[i][o], Colors.Color(Colors.Get.Green));
+                            text += $"{Aligner.Align(tmp, Alignment.Center, this.paddingWidth + 6, " ")} ";
+                        } else
+                        {
+                            text += Aligner.Align(content[i][o], Alignment.Center, this.paddingWidth, " ");
+                        }
                         text += o == 8 ? $" {Border(Get.Vertical)}" : Border(Get.Vertical);
                     }
-                    Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, text, active == i ? ConsoleColor.Red : ConsoleColor.White);
+                    Render.Write(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++, text);
                 }
             }
         }

@@ -11,7 +11,7 @@ Box outerMargin = new(cParent, 2, 1, Global.consoleWidth, Global.consoleHeight);
 Box InnerMargin = new(outerMargin.MakeParent, 2, 1, outerMargin.GetParent.width, outerMargin.GetParent.height);
 
 // Label
-_ = new Label(InnerMargin.MakeParent, 2, 1, 0, "CRUDapp", ConsoleColor.Red);
+_ = new Label(InnerMargin.MakeParent, 2, 1, 0, Colors.Set("CRUDapp", Colors.Color(Colors.Get.Blue)));
 
 // Button
 _ = new Button(InnerMargin.MakeParent, 0, 1, 2, "Create User");
@@ -25,6 +25,14 @@ while(keepRunning)
     Console.CursorVisible = false;
     switch(Console.ReadKey().Key)
     {
+        case ConsoleKey.LeftArrow:
+            table.ActiveSelector = table.ActiveSelector == 8 ? 7 : 8;
+            table.Update(table.Active);
+            break;
+        case ConsoleKey.RightArrow:
+            table.ActiveSelector = table.ActiveSelector == 7 ? 8 : 7;
+            table.Update(table.Active);
+            break;
         case ConsoleKey.DownArrow:
             table.Update(table.Active + 1);
             break;

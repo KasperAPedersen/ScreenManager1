@@ -19,8 +19,40 @@ namespace ScreenManager1
             Console.ForegroundColor = _color;
             for (int i = 0; i < tmp.Length; i++)
             {
-                Console.Write(tmp[i]);
-
+                if (tmp[i].ToString() == "[")
+                {
+                    if (tmp[i+1].ToString() == "/")
+                    {
+                        i += 3;
+                        Console.ForegroundColor = _color;
+                    } 
+                    else
+                    {
+                        switch (tmp[i + 1].ToString())
+                        {
+                            case "r":
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                break;
+                            case "g":
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                break;
+                            case "b":
+                                Console.ForegroundColor = ConsoleColor.Blue;
+                                break;
+                            case "w":
+                                Console.ForegroundColor = ConsoleColor.White;
+                                break;
+                            default:
+                                Console.ForegroundColor = ConsoleColor.White;
+                                break;
+                        }
+                        Console.Write(tmp[i += 3]);
+                    }
+                } 
+                else
+                {
+                    Console.Write(tmp[i]);
+                }
             }
             Console.ForegroundColor = ConsoleColor.White;
         }
