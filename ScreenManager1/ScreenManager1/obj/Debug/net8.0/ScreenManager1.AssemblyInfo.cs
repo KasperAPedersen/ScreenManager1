@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ScreenManager1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+208c1fc8d493747c9deaf39dd974b4c4c98ce68e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c46ccc4479e22a2c27b309a54c8e7fe81a78516")]
 [assembly: System.Reflection.AssemblyProductAttribute("ScreenManager1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ScreenManager1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

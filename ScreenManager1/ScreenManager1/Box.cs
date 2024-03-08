@@ -15,17 +15,14 @@ namespace ScreenManager1
             if (this.Width >= this.GetParent.width) this.Width = this.GetParent.width - 4;
             if (this.Height >= this.GetParent.height) this.Height = this.GetParent.height - 2;
 
-            // Set Top Global.Border of box
             Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), string.Concat(Global.Border(Get.TopLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), this.Width - 2)) + Global.Border(Get.TopRight)));
 
-            // Set Top Global.Border of box
             if (this.Height < 3) this.Height = 3;
             for (int i = 0; i < this.Height - 2; i++)
             {
                 Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), string.Concat(Global.Border(Get.Vertical) + string.Concat(Enumerable.Repeat(" ", this.Width - 2)) + string.Concat(Global.Border(Get.Vertical))));
             }
 
-            // Set Top Global.Border of box
             Render.Write(new Pos(this.GetParent.x + this.X, this.GetParent.y + this.Y + currentHeight++), string.Concat(Global.Border(Get.BottomLeft) + string.Concat(Enumerable.Repeat(Global.Border(Get.Horizontal), this.Width - 2)) + Global.Border(Get.BottomRight)));
         }
     }
