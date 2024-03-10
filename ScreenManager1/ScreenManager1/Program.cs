@@ -1,5 +1,6 @@
 ﻿using ScreenManager1;
 
+// UTF8 encoding
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 // Vars https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html

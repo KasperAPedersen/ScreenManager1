@@ -24,8 +24,6 @@ namespace ScreenManager1
 
     internal class Object
     {
-        
-
         private Parent parent;
         private Pos pos;
         private int width, height;
@@ -43,7 +41,6 @@ namespace ScreenManager1
                 return new Parent(new Pos(this.GetParent.x + this.pos.x, this.GetParent.y + this.pos.y), this.width, this.height);
             }
         }
-        
 
         public Object(Parent _parent, Pos _pos, int _width, int _height)
         {
